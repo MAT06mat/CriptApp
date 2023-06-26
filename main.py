@@ -228,7 +228,6 @@ class App():
         file = open("data\\data")
         data_brut = file.read()
         data = data_brut.split("\n")
-        data.pop(-1)
         self.mes_objets = []
         for text in data:
             button = ButtonCopy(self.Frame_page_gerer_2, bd=2, text=text)
