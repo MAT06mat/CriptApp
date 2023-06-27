@@ -254,7 +254,7 @@ class App():
             self.Frame_entry_1.pack(side="top", fill=tk.X) # il faut pack_forget
             self.Entry_page_gerer.pack(padx=10) # in frame
             self.Texte_test_cle_2.pack(side='right') # in Frame
-            self.Frame_page_gerer_2.pack(side="top")
+            self.Frame_page_gerer_2.pack(side="top") # il faut pack_forget
         if self.page == "UTILISER UNE CLÉ":
             self.Frame_texte_choisir_cle.pack(side="top", fill=tk.X, padx=10, pady=10) # il faut pack_forget
             self.Texte_test_cle.pack(side="right") # in Frame
@@ -267,6 +267,7 @@ class App():
             global copy
             self.Entry_page_utiliser.insert(0, copy)
             copy = ""
+            self.Frame_page_gerer_2.pack(side="top") # il faut pack_forget
         if self.page == "TRADUIRE UN TEXTE":
             self.Frame_page_traduire.pack(side="top", fill=tk.X, padx=10, pady=10) # il faut pack_forget
             self.Texte_nom_cle.pack(side="left") # in Frame
