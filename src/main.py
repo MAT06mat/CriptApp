@@ -6,7 +6,8 @@ from random import randrange
 class App():
     def __init__(self):
         # chemin d'accès au data
-        self.chemin_data = "data"
+        self.chemin_data = "src\\data\\"
+        self.chemin_images = "src\\images\\"
         # définir les couleurs et les polices d'écriture
         self.couleur = {"nero": "#252627",
                         "vert": "#34b297", "blanc": "#FFFFFF"}
@@ -16,15 +17,15 @@ class App():
         self.app.title("CriptApp")
         self.app.config(bg=self.couleur['blanc'])
         self.app.geometry("400x600")
-        self.app.iconbitmap("data\\logo.ico")
+        self.app.iconbitmap(self.chemin_images+"logo.ico")
         self.page = "ACCUEIL"
         self.Etat_navbar = False
         # charge les images
         self.navIcon = PhotoImage(
-            file="data\\menu.png")
+            file=self.chemin_images+"menu.png")
         self.closeIcon = PhotoImage(
-            file="data\\croix.png")
-        self.flechesIcon = PhotoImage(file="data\\traduire.png")
+            file=self.chemin_images+"croix.png")
+        self.flechesIcon = PhotoImage(file=self.chemin_images+"traduire.png")
         # initialisation var
         self.mes_objets = []
         self.keypass = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRST"
@@ -151,11 +152,11 @@ class App():
         if not self.page_gerer_tester_cle():
             return
         key = self.Entry_page_gerer.get()
-        file = open("data\\data")
+        file = open(self.chemin_data+"data")
         data = file.read()
         file.close()
         data = data + "\n" + key
-        file = open("data\\data","w")
+        file = open(self.chemin_data+"data","w")
         file.write(data)
         file.close()
         button = ButtonCopy(self.Frame_page_gerer_2, bd=2, text=key)
@@ -225,7 +226,7 @@ class App():
         self.Boutton_fermer_navbar.place(x=210, y=7.5)
 
     def liste_cles_in_data(self):
-        file = open("data\\data")
+        file = open(self.chemin_data+"data")
         data_brut = file.read()
         data = data_brut.split("\n")
         self.mes_objets = []
